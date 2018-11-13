@@ -30,7 +30,7 @@ function out () {
       
         test = todoList[key].check ? "checked" : "unchecked"; // ? - если чек в тру то чекед иначе пусто 
     
-    out = "<div class=" + test + " id=" + 'main_div_' + key + "><input type = 'checkbox' class = 'che' id =" + key + " " + test + ">" + todoList[key].name + "<button type='button' onclick=deleteItem(" + key + ")>delete</button><br></div>"; // onclick=deleteItem функция сверху)
+    out = "<div class=" + test + " id=" + 'main_div_' + key + "><input type = 'checkbox' class = 'che' id =" + key + " " + test + ">" + todoList[key].name + "<button type='button' onclick=deleteItem(" + key + ")>&times;</button><br></div>"; // onclick=deleteItem функция сверху)
     
     document.getElementById("out").insertAdjacentHTML('beforeend', out); // advanceHtml вставляет в конец выбранного элемента строку(контент) бефоред - после конца ( в самый конец)
     

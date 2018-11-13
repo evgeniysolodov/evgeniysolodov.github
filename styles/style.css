@@ -1,0 +1,61 @@
+body {
+    background:#FFE4E1
+
+}
+
+#out {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+    margin: auto;
+    background-color: rosybrown;
+}
+ 
+button {
+    background: none;
+    border: 1px solid azure;
+    color: azure;
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.unchecked, .checked {
+    display: flex;
+    align-items: center;
+}
+
+#add {
+    color: darkmagenta;
+    border: 1px solid brown;
+}
+
+.indusik {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.checked {
+    background: gray;
+    text-decoration:line-through;
+}
+
+#list {
+    background: Thistle
+}
+
+#check_list {
+    background: #9932CC
+}
+
+#in {
+    background: #E6E6FA;
+    border-bottom-color: rebeccapurple;
+}
