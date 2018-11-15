@@ -13,20 +13,19 @@ const posts = require('./public/routes/api/posts');
 
 app.use('/api/posts', posts);
 
-mongoose.connect('mongodb://EvgeniySolodov:12solodov34@ds111608.mlab.com:11608/dbfirst',{ useNewUrlParser: true }, function(err){
+/*mongoose.connect('mongodb://EvgeniySolodov:12solodov34@ds111608.mlab.com:11608/dbfirst',{ useNewUrlParser: true }, function(err){
   if(err){
     console.log(err);
   }else {
     console.log("Conected to DataBase.");
   }
-});
+});*/
 
 app.use(express.static('public'));
 
 app.all('/', function (req, res){
-    
-    res.send('')
-
+  console.log(1);
+  debugger;
 });
 
 
