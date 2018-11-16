@@ -14,7 +14,8 @@ router.post('/', async (req, res) => {console.log(req)
     const posts = await loadPostsCollection();
     await posts.insertOne({
         text: req.body.name,
-        createdAt: new Date()
+        createdAt: new Date(),
+        checked: false
     });
     res.status(201).send();
 });
