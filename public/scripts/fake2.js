@@ -1,16 +1,18 @@
 
-const PostService = include("../components/PostService.js");
+/*const PostService = include("../components/PostService.js");
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
-}
+}*/
 
 
 
 // import PostService from "../components/PostService";
 
       var todoList = [];
+      var bdList =[];
+      
 
 if (localStorage.getItem("todo") != undefined) {
     
@@ -30,7 +32,7 @@ function deleteItem(elementId) { // deleteItem func из бататона ког
     listAll();
     readyCheck();
     //listCheck ();
- }    
+ }     
  
 function out () {
     document.getElementById("out").innerHTML = '';
@@ -105,18 +107,20 @@ function listAll () {
     }
  
 
-  
+        
         function httpGet(url) {
             return new Promise(function(resolve, reject){
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', '/api/posts', true);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send();
-
+                
                 xhr.onload = function() {
                     if (this.status == 200) {
                         resolve(this.response);
-                        //console.log(this.response);
+                    
+                        bdList = this.response;
+                        
                 } else {
                     var error = new Error(this.statusText);
                     error.code = this.status;
@@ -124,7 +128,8 @@ function listAll () {
                     console.log("eroor");
                     
                 }
-                out(this.response);
+                //out(this.response);
+                
                 }
             })
             
@@ -141,9 +146,6 @@ function listAll () {
     error => console.log(`НЕ работает((: ${error}`)
   );
   
-  
-          
-    
 
         
 
