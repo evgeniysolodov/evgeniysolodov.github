@@ -97,20 +97,12 @@ function listAll () {
     
     saveTodo();
 
-    
-        
-       
-    
-        
-  
-
-      
-  //}
-
- 
-//function colorChange(elementId) {
-//console.log('event',arg)
-//}
+    var MongoRESTrequest = function (todoBj) {
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        xmlhttp.open("POST", "/api/posts");
+        xmlhttp.setRequestHeader("Content-Type", "application/json");
+        xmlhttp.send(JSON.stringify(todoBj));
+    }
  
     window.onload = function(){ // потому что скрипт запускается после того как загрузилась вся страница
 //debugger
@@ -122,11 +114,10 @@ function listAll () {
        todoBj.name = inp;
        todoBj.check = false;
        todoList.push(todoBj);
-    
+    MongoRESTrequest(todoBj);
        out();
        listAll();
        readyCheck();
-       //listCheck ();
     
        document.getElementById('in').value = "";
 
