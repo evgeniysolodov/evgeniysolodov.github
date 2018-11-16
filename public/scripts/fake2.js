@@ -104,6 +104,49 @@ function listAll () {
         xmlhttp.send(JSON.stringify(todoBj));
     }
  
+
+  
+        function httpGet(url) {
+            return new Promise(function(resolve, reject){
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/api/posts', true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.send();
+
+                xhr.onload = function() {
+                    if (this.status == 200) {
+                        resolve(this.response);
+                        //console.log(this.response);
+                } else {
+                    var error = new Error(this.statusText);
+                    error.code = this.status;
+                    reject(error);
+                    console.log("eroor");
+                    
+                }
+                out(this.response);
+                }
+            })
+            
+        }
+
+        
+        
+        
+        
+        
+          httpGet("/api/posts")
+  .then(
+    response => console.log(`РАБОТАЕТ СУКА: ${response}`),
+    error => console.log(`НЕ работает((: ${error}`)
+  );
+  
+  
+          
+    
+
+        
+
     window.onload = function(){ // потому что скрипт запускается после того как загрузилась вся страница
 //debugger
     document.getElementById('add').onclick = function() {
@@ -115,6 +158,8 @@ function listAll () {
        todoBj.check = false;
        todoList.push(todoBj);
     MongoRESTrequest(todoBj);
+
+        httpGet();
        out();
        listAll();
        readyCheck();
@@ -123,5 +168,5 @@ function listAll () {
 
     }
   }
-    }
+}
 
