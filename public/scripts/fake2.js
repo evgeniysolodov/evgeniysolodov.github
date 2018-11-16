@@ -1,5 +1,17 @@
+
+const PostService = include("../components/PostService.js");
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+
+
+// import PostService from "../components/PostService";
+
       var todoList = [];
- 
+
 if (localStorage.getItem("todo") != undefined) {
     
     todoList = JSON.parse(localStorage.getItem("todo"));
@@ -117,6 +129,8 @@ function listAll () {
        //listCheck ();
     
        document.getElementById('in').value = "";
+
     }
   }
     }
+
